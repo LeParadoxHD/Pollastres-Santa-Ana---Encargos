@@ -1,0 +1,793 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+html, body {
+	font-family: RobotoDraft, Arial;
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 10px;
+}
+
+.mCSB_buttonUp {
+	color: #0043bb !important;
+}
+
+div.top_button {
+	display: inline-block;
+	height: 30px;
+	width: auto;
+	background: rgb(30, 115, 190);
+	line-height: 30px;
+	font-size: 13pt;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+div.top_button:hover {
+	background: orange;
+}
+
+div#wrapper {
+	margin-top: 30px;
+	position: relative;
+	z-index: 1;
+}
+
+div#encargos {
+	width: 200px;
+	margin-top: 10px;
+}
+
+span#add_new {
+	height: 50px;
+	background: rgb(30, 115, 190);
+	width: 200px;
+	line-height: 50px;
+	font-size: 15pt;
+	display: block;
+	color: white;
+	text-align: center;
+	border-radius: 60px;
+	cursor: pointer;
+}
+
+span#add_new:hover {
+	background: rgb(10, 133, 255);
+}
+
+div#encargos_tabla {
+	margin-top: 15px;
+}
+
+div.columna {
+	display: inline-block;
+}
+
+div.columna div:not(:first-child) {
+	line-height: 30px;
+	position: relative;
+}
+
+div.columna div:not(:first-child):after {
+	content: "";
+	width: 100%;
+	background: rgba(0,0,0,0.3);
+	height: 2px;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	border-radius: 5px;
+}
+
+div.columna_nombre {
+	width: 150px;
+	text-align: center;
+}
+
+div.columna_hora {
+	width: 60px;
+	text-align: center;
+	margin-left: -5px;
+}
+
+div.selector_hora select {
+	width: 100%;
+	height: 30px;
+	padding-top: 1px;
+	text-align: center;
+	border: 0;
+}
+
+div.columna_pedido {
+	width: 360px;
+	text-align: center;
+	margin-left: -4px;
+}
+
+div.column_id div {
+	vertical-align: middle;
+}
+
+div#titles {
+	background-color: rgb(31, 207, 0);
+	text-align: center;
+	color: white;
+	line-height: 30px;
+	width: 1000px;
+	border-radius: 50px;
+	height: 30px;
+}
+
+div#titless {
+	background-color: rgb(31, 207, 0);
+	text-align: center;
+	color: white;
+	line-height: 30px;
+	width: 1000px;
+	border-radius: 50px;
+	height: 30px;
+}
+
+#tablas {
+	color: black;
+	margin-top: 5px;
+	width: 1000px;
+	border-collapse: collapse;
+}
+
+#tablas tr {
+	background: #F0F0F0;
+	display: block;
+	margin-top: 10px;
+	position: relative;
+}
+
+#tablas tr:hover {
+	background: rgba(30, 115, 190, 1);
+	color: white;
+}
+
+#tablas tr td {
+	line-height: 25px;
+}
+
+tr.row {
+	position: relative;
+}
+
+.magnify {
+	position: absolute;
+	left: 0px;
+	width: 0px;
+	height: 100%;
+	content: "";
+	background-color: #FF8F00;
+	z-index: 9999999;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+}
+
+tr.row:hover .magnify {
+	width: 24px;
+}
+
+.magnify-icon {
+	vertical-align: middle;
+	margin: auto;
+	display: block;
+	width: 0px;
+	height: 16px;
+	left: 5px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background: url("magnify.png");
+	background-size: cover;
+	transition: all .2s ease-in-out;
+}
+
+tr.row:hover .magnify .magnify-icon {
+	width: 16px;
+}
+
+div.row div {
+	display: inline-block;
+}
+
+.name {
+	width: 150px;
+	max-width: 150px;
+	text-align: center;
+}
+
+.order {
+	width: 230px;
+	max-width: 230px;
+	text-align: center;
+}
+
+.extra {
+	width: 90px;
+	max-width: 90px;
+	text-align: center;
+}
+
+.hour {
+	width: 80px;
+	text-align: center;
+}
+
+.hora {
+	margin-left: 10px;
+	width: 40px;
+	height: 30px;
+}
+
+.notes {
+	width: 150px;
+	max-width: 150px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.options {
+	width: 280px;
+}
+
+div#titles {
+	z-index: 9999999999;
+}
+
+div#titles div {
+	display: inline-block;
+	text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+div#titles div:nth-child(1) {
+	width: 130px;
+	float: left;
+}
+
+div#titles div:nth-child(2) {
+	width: 250px;
+	float: left;
+}
+
+div#titles div:nth-child(3) {
+	width: 100px;
+	float: left;
+}
+
+div#titles div:nth-child(4) {
+	width: 80px;
+	float: left;
+}
+
+div#titles div:nth-child(5) {
+	width: 150px;
+	float: left;
+}
+
+div#titles div:nth-child(6) {
+	width: 280px;
+	float: right;
+}
+
+div#titless {
+	z-index: 9999999999;
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 10px;
+}
+
+div#titless div {
+	display: inline-block;
+	text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+div#titless div:nth-child(1) {
+	width: 130px;
+	float: left;
+}
+
+div#titless div:nth-child(2) {
+	width: 250px;
+	float: left;
+}
+
+div#titless div:nth-child(3) {
+	width: 100px;
+	float: left;
+}
+
+div#titless div:nth-child(4) {
+	width: 80px;
+	float: left;
+}
+
+div#titless div:nth-child(5) {
+	width: 150px;
+	float: left;
+}
+
+div#titless div:nth-child(6) {
+	width: 280px;
+	float: right;
+}
+
+div#encargar, div.editar {
+	position: fixed;
+	display: none;
+	bottom: 0;
+	left: 0;
+	width: 97.6%;
+	height: 500px;
+	background: white;
+	border: 3px solid rgb(10, 133, 255);
+	/* box-shadow: 0 0px 15px rgba(10, 133, 255, 0.7);*/
+	padding: 20px;
+	z-index: 999999999;
+}
+
+div#cerrar_encargo, div#cerrar_editar {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	background: url("../img/close.png") no-repeat;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+label {
+	font-size: 22pt;
+	color: rgb(30, 115, 190);
+}
+
+form#reservar input[type="text"], form.editar_reserva input[type="text"] {
+	height: 60px;
+	width: 600px;
+	border-radius: 10px;
+	padding: 5px 20px;
+	box-sizing: border-box;
+	border: 2px solid rgb(10, 133, 255);
+	font-size: 22pt;
+	text-align: center;
+	outline: none;
+	margin-left: 30px;
+}
+
+div.form_numbers {
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+div.form_numbers span {
+	font-weight: bold;
+	font-size: 20pt;
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
+input[type="number"] {
+	height: 70px;
+	width: 100px;
+	padding-left: 5px;
+	box-sizing: border-box;
+	font-size: 25pt;
+}
+
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    cursor: pointer;
+    display: block;
+    width: 20px;
+    color: #333;
+    text-align: center;
+    position: relative;
+}    
+input[type=number]:hover::-webkit-inner-spin-button { 
+    background: #eee url('arrows.png') no-repeat 50% 50%;
+    width: 25px;
+    height: 58px;
+    padding: 4px;
+    position: relative;
+    right: 0px;
+    top: 0px;
+}
+
+
+textarea {
+	width: 500px;
+	height: 150px;
+	font-size: 20pt;
+	padding: 10px;
+	box-sizing: border-box;
+	margin-left: 20px;
+	border: 1px solid rgb(30, 115, 190);
+	border-radius: 10px;
+}
+
+input[type="checkbox"] {
+	height: 30px;
+	width: 30px;
+	margin-left: 30px;
+	position: relative;
+	top: -50px;
+	font-size: 20pt;
+}
+
+input[type="checkbox"] + label {
+	position: relative;
+	top: -55px;
+	left: 10px;
+}
+
+input[type="submit"] {
+	width: 500px;
+	height: 120px;
+	line-height: 70px;
+	font-size: 35pt;
+	color: white;
+	background: rgb(10, 133, 255);
+	border: 0;
+	cursor: pointer;
+	border-radius: 100px;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	top: -150px;
+	left: 200px;
+}
+
+#pagado2 {
+	left: 650px;
+	top: -30px;
+}
+
+.option_separado {
+	content: "Separar";
+	box-sizing: border-box;
+	width: 95px;
+	height: 25px;
+	float: right;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 25px;
+	background: #FF8F00;
+	text-align: right;
+	color: white;
+	position: relative;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+	visibility: hidden;
+}
+
+.option_tachar {
+	content: "Tachar";
+	box-sizing: border-box;
+	width: 85px;
+	height: 25px;
+	float: right;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 25px;
+	background: #B31217;
+	text-align: right;
+	color: white;
+	position: relative;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+}
+
+.option_otros {
+	content: "Otros";
+	box-sizing: border-box;
+	width: 75px;
+	height: 25px;
+	float: right;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 25px;
+	background: #2196F3;
+	text-align: right;
+	color: white;
+	position: relative;
+	cursor: pointer;
+}
+
+.option_separado .icon {
+	content: "";
+	width: 16px;
+	height: 16px;
+	background: url("eye.png");
+	position: absolute;
+	top: 5px;
+	left: 7px;
+}
+
+.option_tachar .icon {
+	content: "";
+	width: 14px;
+	height: 14px;
+	background: url("checkbox.png");
+	background-size: cover;
+	position: absolute;
+	top: 5px;
+	left: 7px;
+}
+
+.option_otros .icon {
+	content: "";
+	width: 11px;
+	height: 11px;
+	background: url("others.png");
+	background-size: cover;
+	position: absolute;
+	top: 7px;
+	left: 9px;
+}
+
+.vendido {
+	background: #F0F0F0 !important;
+	color: black !important;
+}
+
+div#estadisticas {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 800px;
+	height: 100px;
+}
+
+table#analytics {
+	border-collapse: collapse;
+	border: 0px;
+	position: absolute;
+	top: 0px;
+}
+
+table#analytics tr td{
+	border: 1px solid rgba(0,0,0,0.4);
+	line-height: 25px;
+	padding-right: 15px;
+	padding-left: 15px;
+	text-align: center;
+}
+
+table#analytics tr:first-child, table#analytics tr:nth-child(3) {
+	background-color: rgb(30, 115, 190);
+	color: white;
+}
+
+table#analytics tr td input {
+	width: 93px;
+	height: 25px;
+	border: 0px;
+	text-align: center;
+	outline: 0;
+	background: transparent;
+}
+
+td.noPadding {
+	padding: 0px !important;
+}
+
+.more_options {
+	position: absolute;
+	top: 35px;
+	right: 20px;
+	height: 100px;
+	width: 150px;
+	display: block;
+	z-index: 99;
+	border: 5px solid #673AB7;
+	background: #F0F0F0;
+	display: none;
+}
+
+.more_options:before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	background: url("more_options.png");
+	position: absolute;
+	z-index: 999;
+	top: -15px;
+	right: 20px;
+	transform: rotate(-90deg);
+}
+
+.separar {
+	visibility: visible;
+}
+
+.separado {
+	width: 110px;
+	background-color: rgb(31, 207, 0);
+}
+
+.separado span.icon {
+	background: url("ok.png");
+	height: 12px;
+	width: 12px;
+	top: 7px;
+	left: 9px;
+	background-size: cover;
+}
+
+.separado:after {
+	content: "Separado!";
+}
+
+.separado span.separar_texto {
+	display: none;
+}
+
+tr.tachado .options .option_otros, tr.tachado .options .option_tachar {
+	width: 10px;
+}
+
+tr.tachado .options .option_separado {
+	width: 170px;
+	visibility: visible;
+	background-color: rgb(31, 207, 0);
+}
+
+tr.tachado .options {
+	visibility: hidden;
+}
+
+tr.tachado .name, tr.tachado .order, tr.tachado .extra, tr.tachado .hour, tr.tachado .notes {
+	text-decoration: line-through;
+}
+
+tr.tachado .options .option_separado .separar_texto {
+	display: inherit;
+}
+
+tr.tachado .options .option_separado .icon {
+	background: url("ok.png");
+	background-size: cover;
+	width: 12px;
+	height: 12px;
+	top: 7px;
+	left: 9px;
+}
+
+tr.tachado .options .option_separado:after {
+	content: "";
+}
+
+div#mysql {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: #FFFFFF;
+	z-index: 9999999999;
+	display: block;
+	width: 300px;
+	height: 100%;
+	padding: 30px;
+	box-sizing: border-box;
+	box-shadow: 0 0px 20px #888888;
+	display: none;
+}
+
+#select_date {
+	width: 100%;
+}
+
+#date_submit {
+	background: rgb(30,115, 190);
+	padding: 5px;
+	width: 50px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+	color: white;
+	border-radius: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#stock {
+	font-family: RobotoDraft, Arial;
+	font-size: 11pt;
+	height: 9pt;
+	background: transparent;
+	color: purple;
+	font-weight: bold;
+}
+
+div#find {
+	width: 220px;
+	height: 100px;
+	background: rgb(30, 115, 190);
+	border-radius: 5px;
+	position: fixed;
+	top: 150px;
+	left: 1070px;
+	text-align: center;
+	z-index: 999999;
+}
+
+div#find .only_title {
+	color: white;
+	font-size: 17pt;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+div#find #search {
+	height: 38px;
+	width: 85%;
+	border: 0;
+	border-radius: 3px;
+	font-size: 15pt;
+	text-align: center;
+	background: #319aed;
+	color: white;
+	box-shadow: 0 0 9px rgb(30, 115, 190) inset;
+	outline: none;
+}
+
+#search::-webkit-input-placeholder {
+	color: white;
+	opacity: 0.7;
+}
+
+#hora {
+	font-size: 15pt;
+	width: 100px !important;
+	display: inline-block;
+	margin-right: 20px;
+	margin-left: 30px;
+}
+
+.button_hour {
+	width: 100px;
+	height: 30px;
+	display: inline-block;
+	line-height: 30px;
+	font-size: 20px;
+	background-color: rgb(30, 115, 190);
+	text-align: center;
+	color: white;
+	position: relative;
+	top: 1px;
+	margin-right: 30px;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+div#shortcuts {
+	background: #E6E6E6;
+	padding: 20px;
+	width: 280px;
+	font-size: 11pt;
+	position: fixed;
+	top: 280px;
+	left: 1070px;
+	border-radius: 20px;
+}
+
+.stroke {
+	color: rgb(30, 115, 190);
+	font-weight: bold;
+}
